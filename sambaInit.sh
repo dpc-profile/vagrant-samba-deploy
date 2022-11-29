@@ -1,7 +1,7 @@
 #! /bin/sh
 
 username="shareuser"
-pass=""
+pass="win11"
 smbFile="/etc/samba/smb.conf"
 
 sudo apt-get update 
@@ -10,9 +10,6 @@ sudo useradd -M $username
 sudo mkdir /media/share
 sudo chmod 777 /media/share
 
-sudo rm -f $smbFile
-sudo touch $smbFile
-sudo echo $smb > $smbFile
 sudo cat >$smbFile <<EOF
 [global]
     workgroup = casa
