@@ -1,7 +1,7 @@
 #! /bin/sh
 
 username="shareuser"
-pass="win11"
+pass=""
 smbFile="/etc/samba/smb.conf"
 
 sudo apt-get update 
