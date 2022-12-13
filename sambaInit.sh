@@ -3,12 +3,13 @@
 username="shareuser"
 pass="win11"
 smbFile="/etc/samba/smb.conf"
+sharePath="/mnt/share"
 
 sudo apt-get update 
 sudo apt install samba -y
 sudo useradd -M $username
-sudo mkdir /media/share
-sudo chmod 777 /media/share
+sudo mkdir $sharePath
+sudo chmod 777 $sharePath
 
 sudo cat >$smbFile <<EOF
 [global]
@@ -17,7 +18,7 @@ sudo cat >$smbFile <<EOF
 
 [share01]
     comment = Pasta compartilhada
-    path = /media/share
+    path = $sharePath
     browseable = yes
     valid users = shareuser
     writable = yes
