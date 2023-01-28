@@ -5,7 +5,8 @@ pass="win11"
 smbFile="/etc/samba/smb.conf"
 sharePath="/mnt/share"
 
-sudo apt-get update 
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt install samba -y
 sudo useradd -M $username
 sudo mkdir $sharePath
