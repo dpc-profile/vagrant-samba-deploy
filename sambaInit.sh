@@ -5,19 +5,19 @@ pass="win11"
 smbFile="/etc/samba/smb.conf"
 sharePath="/mnt/share"
 
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install samba -y
-sudo useradd -M $username
-sudo mkdir $sharePath
-sudo chmod 777 $sharePath
+apt update -y
+apt upgrade -y
+apt install samba -y
+useradd -M $username
+mkdir $sharePath
+chmod 777 $sharePath
 
-sudo cat >$smbFile <<EOF
+cat >$smbFile <<EOF
 [global]
     workgroup = casa
     server string = %h server (Samba, Ubuntu)
 
-[share01]
+[sharedFolder]
     comment = Pasta compartilhada
     path = $sharePath
     browseable = yes
@@ -26,4 +26,4 @@ sudo cat >$smbFile <<EOF
 EOF
 
 sudo echo -e "$pass\n$pass" | smbpasswd -a -s $username
-sudo systemctl restart smbd.service
+systemctl restart smbd.service
